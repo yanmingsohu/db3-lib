@@ -10,6 +10,7 @@ module.exports.initJava = initJava;
 ext('./lib/types.js');
 ext('./lib/pool.js');
 ext('./lib/offline.js');
+ext('./lib/install.js');
 
 
 

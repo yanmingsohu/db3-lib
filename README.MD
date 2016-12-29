@@ -46,6 +46,17 @@ connect.end();
 // 测试连接状态
 connect.isClosed();
 
+// 执行一批 DDL 语句, 通常用于程序的初始化, 所有日志输出到 console
+// cb - Function(err, next, sql); 当程序出错会设置 err, 
+//      如果还有语句未执行则设置 next, 调用 next 执行;
+db3.install(connect, ddl_arr, cb);
+
+// 全自动安装, 这将创建一个驱动并执行
+// conf - 数据库连接配置
+// allow_sql_fail - true 为允许 sql 语句报错并继续执行
+// allow_alert_fail - true 为允许 alert 语句产生警告
+db3.installAll(conf, ddl_arr, allow_alert_fail, allow_sql_fail);
+
 // 创建连接池, api 与 driver 相同
 var pool = db3.create_conn_pool(config, 1, 3, 2000);
 var conn = pool.connect(...);
