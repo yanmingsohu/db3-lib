@@ -1,6 +1,6 @@
 {
     "name": "db3-lib",
-    "version": "0.2.31",
+    "version": "0.2.32",
     "description": "多种数据库支持",
     "main": "index.js",
     "scripts": {
@@ -8,10 +8,10 @@
         "install": "node install.js"
     },
     "author": "jym",
-    "license": "ISC",
+    "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "private"
+        "url": "https://github.com/yanmingsohu/db3-lib"
     },
     "dependencies": {
         "java-factory-lib": "*",

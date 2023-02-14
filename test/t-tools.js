@@ -1,5 +1,8 @@
 var db3 = require('../index.js');
-
+var jfact = require('java-factory-lib');
+var index = require('../index.js');
+var java = require('java');
+jfact.setJavaInstance(java);
 
 module.exports = {
   do_db : do_db

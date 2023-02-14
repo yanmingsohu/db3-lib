@@ -8,13 +8,14 @@ npm install db3-lib --save
 ```
 
 
-## DB Support
+## DB Support name list
 
 * `mysql`         -- 使用 node 原生代码
 * `sqlserver`     -- 微软数据库
 * `oracle`        -- 很麻烦的数据库
-* `h2local`       -- H2 本地数据库, 配置中的 host 指定了数据库
-                     存放数据的本地目录
+* `h2local`       -- H2 本地数据库, 配置中的 host 指定了数据库, 存放数据的本地目录
+* `h3cmpp`        -- H3C 数据库集群
+
 
 > 数据库名称必须完全匹配, 配置中的 driver 字段
 
@@ -47,7 +48,7 @@ connect.end();
 connect.isClosed();
 
 // 执行一批 DDL 语句, 通常用于程序的初始化, 所有日志输出到 console
-// cb - Function(err, next, sql); 当程序出错会设置 err, 
+// cb - Function(err, next, sql); 当程序出错会设置 err,
 //      如果还有语句未执行则设置 next, 调用 next 执行;
 db3.install(connect, ddl_arr, cb);
 
@@ -113,7 +114,7 @@ connect.rollback(function() {})
         'type'      :number       // 列类型的数据库编码
         'size'      :'fSize',     // 长度
         'nullable'  :"bool"       // 允许空
-    }, 
+    },
     {...}, ...
 ]
 ```
@@ -136,6 +137,7 @@ connect.rollback(function() {})
   password : '',                // 密码
   port     : '3306',            // 端口
   database : 'log_for_node',    // 数据库名 / 实例名(oracle)
+  properties : {},              // 数据库连接扩展属性设置, 可以为空
 }
 ```
 
